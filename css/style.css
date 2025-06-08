@@ -1,0 +1,90 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0;
+  overflow-y: auto;
+}
+
+body {
+  opacity: 0;
+  transform: scale(0.5);
+  transform-origin: center center;
+  transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+}
+body.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+body.fade-out {
+  opacity: 0;
+  transform: scale(0.5);
+}
+
+.front-page {
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+}
+
+.logo {
+  max-width: 80vw;
+  max-height: 40vh;
+  width: auto;
+  height: auto;
+  margin-bottom: 1.5rem;
+  transform-origin: center center;
+  animation: pulse 1s ease-in-out 0.8s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.description {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #333;
+  padding: 0 1rem;
+  line-height: 1.4;
+  font-size: 1rem;
+}
+
+.navigation button {
+  margin: 0.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 650;
+  cursor: pointer;
+  border: none;
+  background-color: #362a2a;
+  color: #fff;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  touch-action: manipulation;
+}
+.navigation button:hover {
+  background-color: #267A66;
+}
+
+@media (max-width: 480px) {
+  .description {
+    font-size: 0.9rem;
+  }
+  .navigation button {
+    width: 80%;
+    padding: 1rem 0;
+    font-size: 1.1rem;
+  }
+}

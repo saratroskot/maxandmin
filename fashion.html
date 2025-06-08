@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAX & MIN</title>
+  <link rel="stylesheet" href="css/fashion.css" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</head>
+<body>
+    <a href="index.html" class="home-button">◄ BACK</a>
+    <button id="saveBtn" class="save-button">SAVE</button>
+
+    <div id="room">
+
+    <img
+      id="bottoms"
+      class="item"
+      data-variants='["images/bottom1.avif", "images/bottom2.avif", "images/bottom3.avif", "images/bottom4.avif", "images/bottom5.avif", "images/bottom6.avif", "images/bottom7.avif",  "images/bottom8.avif", "images/bottom9.avif",  "images/bottom10.avif", "images/bottom11.avif"]'
+      src="images/bottom1.avif"
+      loading="lazy"
+      alt="Bottoms"
+    />
+
+    <img
+      id="tops"
+      class="item"
+      data-variants='["images/top1.avif", "images/top2.avif", "images/top3.avif", "images/top4.avif", "images/top5.avif", "images/top6.avif", "images/top7.avif",  "images/top8.avif", "images/top9.avif", "images/top10.avif", "images/top11.avif"]'
+      src="images/top1.avif"
+      loading="lazy"
+      alt="Tops"
+    />
+    
+</div>
+
+<script src="js/swap.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
+      document.body.classList.add('fade-in');
+    });
+
+    const btn = document.getElementById("saveBtn");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        html2canvas(
+          document.getElementById("room"),
+          {
+            useCORS: true,     
+            allowTaint: false, 
+            scrollY: -window.scrollY,
+            scrollX: -window.scrollX
+          }
+        ).then(canvas => {
+          canvas.toBlob(blob => {
+            const link = document.createElement('a');
+            link.download = 'my-room.png';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+            URL.revokeObjectURL(link.href);
+          });
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+body, html {
+margin: 0;
+padding: 0;
+width: 100vw;
+  height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: #c6e2dc;
+overflow: hidden;
+}
+
+body {
+opacity: 0;
+transition: opacity 0.8s ease-in-out;
+}
+
+body.fade-in {
+opacity: 1;
+}
+
+.home-button {
+font-family: "Montserrat", sans-serif;
+font-weight: 600;
+position: fixed;
+top: 1rem;
+left: 1rem;
+background-color: #362a2a;
+color: white;
+text-decoration: none;
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+border-radius: 0.625vh;
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+
+#rotate-screen {
+  font-family: "Montserrat", sans-serif;
+font-weight: 600;
+font-size: 100%;
+  color: #000000;    
+  text-align: center;
+}
+
+.save-button {
+font-family: "Montserrat", sans-serif;
+font-weight: 600;
+position: fixed;
+top: 1rem;
+right: 1rem;
+background-color: #267A66;
+color: white;
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+border: none;
+border-radius: 0.625vh;
+cursor: pointer;
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #267A66;
+}
+
+.save-button:hover {
+  background-color: #362a2a;
+}
+
+.item {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  filter: brightness(1);
+  transition: transform 0.1s ease, filter 0.1s ease-in-out;
+  -webkit-tap-highlight-color: transparent;          
+  outline: none;   
+  -webkit-touch-callout: none;  
+  touch-action: manipulation;  
+  transition: transform 0.1s ease, filter 0.2s ease-in-out;
+  transform-origin: center center;
+}
+
+.item:hover {
+  filter: brightness(1.25);
+}
+
+.item:active {
+  transform: scale(1.1);
+}
+
+#room {
+  position: relative;
+  aspect-ratio: 4 / 3;    
+  width: 100%;
+  max-width: 800px;
+  background: url('../images/room_bg.avif') center/cover no-repeat;
+  margin: auto;
+  overflow: hidden;
+}
+
+#wallpaper {
+  width: 93.5%;      
+  top: 5%;         
+  left: 3%;       
+}
+
+#fireplace {
+  width: 34.5%;      
+  top: 27%;         
+  left: 31%;       
+}
+
+#chair {
+  width: 25.5%;      
+  top: 42%;         
+  left: 73%;       
+}
+
+#couchteal {
+  width: 24.5%;      
+  top: 70%;         
+  left: 77%;       
+}
+
+#carpet {
+  width: 68.5%;      
+  top: 87%;         
+  left: 15%;       
+}
+
+#tabure {
+  width: 11%;      
+  top: 68%;         
+  left: 27%;       
+}
+
+#sidetable {
+  width: 12.5%;      
+  top: 66%;         
+  left: 61%;       
+}
+
+#desk {
+  width: 20.5%;      
+  top: 60%;         
+  left: 7%;       
+}
+
+#couchleft {
+  width: 19.5%;      
+  top: 59%;         
+  left: 0%;       
+}
+
+#paintings {
+  width: 62.5%;      
+  top: 10%;         
+  left: 14%;       
+}
+
+#lamp {
+  width: 9.5%;      
+  top: 29%;         
+  left: 0%;       
+}
+
+#cushion {
+  width: 17.5%;      
+  top: 66%;         
+  left: 1%;       
+}
+
+@media (max-width: 600px) {
+  #room {
+    max-width: 100%;
+  }
+  .item {
+    width: 25%;
+  }
+  .home-button,
+.save-button {
+  padding: 2vw 3vw;
+    font-size: 3vw;
+}
+}
+
+@media (orientation: portrait) {
+  #rotate-screen {
+    display: flex;
+  }
+  #room {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  #rotate-screen { display: none; }
+
+  #room {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 135vh;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    
+  }
+  .home-button,
+  .save-button {
+    padding: 1vw 1.5vw;
+    font-size: 1.2vw;
+  }
+}
+
+
+
+
+
+
+
+
+

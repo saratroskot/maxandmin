@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MAX & MIN</title>
+  <link rel="stylesheet" href="css/graphic.css" />
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+
+</head>
+<body>
+    <a href="index.html" class="home-button">◄ BACK</a>
+    <button id="saveBtn" class="save-button">SAVE</button>
+
+    <div id="room">
+
+    <img
+      id="wallpaper"
+      class="item"
+      data-variants='["images/pozadina1.avif", images/pozadina2.avif",]'
+      src="images/pozadina1.avif"
+      loading="lazy"
+      alt="Wallpaper"
+    />
+
+<img
+      id="naslov"
+      class="item"
+      data-variants='["images/naslov1.avif", "images/naslov2.avif", "images/naslov3.avif", "images/naslov4.avif", "images/naslov5.avif", "images/naslov6.avif", "images/naslov7.avif",  "images/naslov8.avif", "images/naslov9.avif", "images/naslov10.avif", "images/naslov11.avif"]'
+      src="images/naslov1.avif"
+      loading="lazy"
+      alt="Naslov"
+    />
+
+    <img
+      id="slika"
+      class="item"
+      data-variants='["images/slika1.avif", "images/slika2.avif", "images/slika3.avif", "images/slika4.avif", "images/slika5.avif", "images/slika6.avif", "images/slika7.avif",  "images/slika8.avif", "images/slika9.avif", "images/slika10.avif", "images/slika11.avif"]'
+      src="images/slika1.avif"
+      loading="lazy"
+      alt="Slika"
+    />
+    
+</div>
+
+<script src="js/swap.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    requestAnimationFrame(() => {
+      document.body.classList.add('fade-in');
+    });
+
+    const btn = document.getElementById("saveBtn");
+    if (btn) {
+      btn.addEventListener("click", () => {
+        html2canvas(
+          document.getElementById("room"),
+          {
+            useCORS: true,     
+            allowTaint: false, 
+            scrollY: -window.scrollY,
+            scrollX: -window.scrollX
+          }
+        ).then(canvas => {
+          canvas.toBlob(blob => {
+            const link = document.createElement('a');
+            link.download = 'my-room.png';
+            link.href = URL.createObjectURL(blob);
+            link.click();
+            URL.revokeObjectURL(link.href);
+          });
+        });
+      });
+    }
+  });
+</script>
+</body>
+</html>

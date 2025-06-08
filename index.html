@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAX & MIN</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="images/logo.avif">
+
+</head>
+<body>
+  <div class="front-page">
+    <img src="images/logo.avif" alt="Logo" class="logo">
+    <p class="description">Dive into the world of minimalism and maximalism! <br> Make choices, have fun, and discover your style. <br> Save and share your creation!
+
+</p>
+    <nav class="navigation">
+      <button onclick="location.href='interior.html'">Interier</button>
+      <button onclick="location.href='fashion.html'">Fashion</button>
+      <button onclick="location.href='graphic.html'">Graphic</button>
+    </nav>
+  </div>
+
+ <script>
+
+document.addEventListener("DOMContentLoaded", () => {
+  requestAnimationFrame(() => {
+    document.body.classList.add("fade-in");
+  });
+
+  const buttons = document.querySelectorAll(".navigation button");
+  buttons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      const match = button.getAttribute("onclick").match(/'([^']+)'/);
+      const target = match ? match[1] : "/";
+      document.body.classList.remove("fade-in");
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location.href = target;
+      }, 800);
+    });
+  });
+});
+
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,130 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e0e0e0;
+}
+
+body {
+   opacity: 0;
+   transition: opacity 0.8s ease-in-out;
+  }
+body.fade-in {
+   opacity: 1;
+}
+
+.save-button {
+font-family: "Montserrat", sans-serif;
+font-weight: 600;
+position: fixed;
+top: 1rem;
+right: 1rem;
+background-color: #267A66;
+color: white;
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+border: none;
+border-radius: 0.625vh;
+cursor: pointer;
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #267A66;
+}
+
+.home-button {
+font-family: "Montserrat", sans-serif;
+font-weight: 600;
+position: fixed;
+top: 1rem;
+left: 1rem;
+background-color: #362a2a;
+color: white;
+text-decoration: none;
+padding: 0.75rem 1.5rem;
+font-size: 1rem;
+border-radius: 0.625vh;
+z-index: 1000;
+transition: background-color 0.3s ease;
+}
+
+.save-button:hover {
+  background-color: #362a2a;
+}
+
+#room {
+  position: relative;   
+  width: 90vw;             
+  max-width: 600px;        
+  aspect-ratio: 3 / 4;      
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  border: 10px solid #223f38;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+
+.item {
+  position: absolute;
+  cursor: pointer;
+  user-select: none;
+  filter: brightness(1);
+  transition: transform 0.1s ease, filter 0.1s ease-in-out;
+  -webkit-tap-highlight-color: transparent;          
+  outline: none;   
+  -webkit-touch-callout: none;  
+  touch-action: manipulation;  
+  transition: transform 0.1s ease, filter 0.2s ease-in-out;
+  transform-origin: center center;
+}
+
+.item:active {
+  transform: scale(1.1);
+}
+
+.item:hover {
+  filter: brightness(1.15);
+}
+
+.item:focus {
+  outline: none;
+}
+
+#wallpaper {
+  width: 100%;      
+  top: 0%;         
+  left: 0%;       
+}
+
+#tops {
+  width: 47%;      
+  top: 21%;         
+  left: 27.4%;       
+}
+
+#naslov {
+  width: 100%;      
+  top: 0%;         
+  left: 2%;       
+}
+
+#slika {
+  width: 100%;      
+  bottom: 0%;         
+  left: 0%;       
+}
+
+
+@media (max-width: 400px) {
+  #room {
+    width: 100vw;   
+  }
+}
+
